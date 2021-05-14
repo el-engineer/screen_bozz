@@ -3,7 +3,7 @@ import time
 
 #Connect to the Arduino Mega 2560 over serial connection
 if __name__ == '__main__':
-  ser = serial.Serial("/dev/ttyACM0",250000, timeout=1) 
+  ser = serial.Serial("COM6",250000, timeout=1)
   ser.flush()
 
 ListofPositiveResponses = ["Y", "y", "Yes", "yes"]
@@ -24,3 +24,5 @@ if UserManualGCodeInput in ListofPositiveResponses:
     ser.write(MoveToSpindleStartingPositionInBytes)
     print("Moving to spindle starting position. This will take approximately 1 minutes. ")
     time.sleep(60)
+
+print("process completed")
